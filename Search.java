@@ -29,6 +29,7 @@ public class Search {
        if ((sortedNums[middleIndex] != searchNum) && (searchNum < sortedNums[middleIndex])) {
             rightIndex = middleIndex - 1;
             middleIndex = rightIndex/2;
+            System.out.println(sortedNums[middleIndex]);
        }
 
         return -1;
