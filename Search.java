@@ -26,12 +26,19 @@ public class Search {
        int middleIndex = searchList.length/2;
        int rightIndex = searchList.length - 1;
 
-       if ((sortedNums[middleIndex] != searchNum) && (searchNum < sortedNums[middleIndex])) {
-            rightIndex = middleIndex - 1;
-            middleIndex = rightIndex/2;
-            System.out.println(sortedNums[middleIndex]);
+       while (leftIndex <= rightIndex) {
+           if (sortedNums[middleIndex] == searchNum) {
+               System.out.println("Found " + searchNum + " at index " + middleIndex);
+               return middleIndex;
+           } else if (searchNum < sortedNums[middleIndex]) {
+               rightIndex = middleIndex - 1;
+               middleIndex = (rightIndex + leftIndex) / 2;
+           } else {
+               leftIndex = middleIndex + 1;
+               middleIndex = (rightIndex + leftIndex) / 2;
+           }
        }
-
+        System.out.println("Did not find " + searchNum);
         return -1;
     }
 
